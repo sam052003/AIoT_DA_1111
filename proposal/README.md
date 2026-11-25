@@ -1,45 +1,31 @@
-# AirGuard AI｜期末專題提案文件
+# AirGuard AI｜提案歷史資料與最新版文件入口
 
-> **重要：此目錄保留 2026-11-03 原始提案歷史版本，不是目前最終功能範圍的權威文件。** 2026-11-24 已將後續約 500 字摘要的路線級導航、個人累積暴露、SHAP 與替代時段納入**最終必做**，請先閱讀 [最新版 SRS](../myplan/04_系統功能需求與驗收標準.md)、[README](../README.md) 與 [DESIGN](../DESIGN.md)；歷史提案中的「Stretch / 選做」不得覆蓋新版需求。
+> 此目錄的 `text/` 與 `infographics/` 保留 **2026-11-03 原始提案**及老師提供的作業規範文字備份；**請勿把舊 v2 的道路導航必做宣稱當成現行 v3 規格**。最新正式文件已同步到 [`docs/proposal/`](../docs/proposal/README.md)；真正的程式與驗證在 [AirGuard-AI](https://github.com/sam052003/AirGuard-AI)。
 
-> 課程：物聯網數據分析與應用（AIoT-DA）｜2026-11-03 提案版本。研究規劃不代表模型或系統已完成實驗驗證。
+## 目前建議閱讀順序
 
-## 00｜原始提案文件
+1. [最新版總覽 README（含摘要及 A–F）](../README.md)。
+2. [第二組 v3 提案 Word、PPTX 與版本索引](../docs/proposal/README.md)。
+3. [v3 DESIGN](../DESIGN.md)、[SRS](../docs/requirements.md)、[Deep Research](../research/deep-research-v3-evidence-2026-11-24.md)。
+4. [教師期末專題提案作業規範（歷史文字備份）](text/期末專題提案作業規範_文字備份.md)。
 
-本目錄整理五份原始資料，原始檔需保留 DOCX／PPTX／PDF／PNG 格式以保證文字、圖片與排版完整。
+## 歷史文字備份（保留，不當作現行交付）
 
-| 編號 | 原始檔預定存放位置 | 說明 |
-|---|---|---|
-| 01 | `documents/AirGuard_AI_Final_Proposal.docx` | 正式提案報告書 |
-| 02 | `slides/AirGuard_AI_Final_Proposal_Presentation.pptx` | 24 頁提案簡報 |
-| 03 | `guidelines/期末專題提案作業規範.pdf` | 教師正式作業規範 |
-| 04 | `analysis/AirGuard 專題提案解析.pdf` | 對照規範與 A2Z 的提案解析 |
-| 05 | `infographics/AirGuard AI 專題規範落實度資訊圖表.png` | A4 橫式、十區塊編號式資訊圖表 |
+- [2026-11-03 原始提案報告書文字](text/AirGuard_AI_Final_Proposal_文字備份.md)
+- [2026-11-03 原始提案簡報文字](text/AirGuard_AI_Final_Proposal_Presentation_文字備份.md)
+- [原始作業規範文字備份](text/期末專題提案作業規範_文字備份.md)
+- [專題提案解析文字備份](text/AirGuard_專題提案解析_文字備份.md)
+- [原始資訊圖表文字整理](infographics/INFOGRAPHIC_CONTENT.md)
+- [歷史 SHA256SUMS](SHA256SUMS.txt)：為原先規劃的文件校驗紀錄，不等於本次 `docs/proposal/` 最新二進位檔案的校驗表。
 
-**上傳狀態**：本次已先提交下方的可搜尋文字備份與索引；上述五份**二進位原始檔尚須透過 Git 推送**，不得將文字備份誤認為原件已上傳。完整原件已另行打包交付。
+**教師摘要 A–F**：A Attention Getter／B But／C Cure／D Development／E Experiments／F Findings；另需 Introduction、AI 50%＋Domain 50% 的 Related Work、Article Summary Table、Deep Research（5 Mindsets／3 Controversies／10 Questions）、Architecture／Flowchart／Pseudocode。
 
-## 01｜GitHub 文字備份
+## v1 → v2 → v3 範圍
 
-- [正式提案報告書｜文字抽取](./text/AirGuard_AI_Final_Proposal_文字備份.md)
-- [24 頁提案簡報｜文字抽取](./text/AirGuard_AI_Final_Proposal_Presentation_文字備份.md)
-- [期末專題提案作業規範｜文字抽取](./text/期末專題提案作業規範_文字備份.md)
-- [專題提案解析｜文字抽取](./text/AirGuard_專題提案解析_文字備份.md)
-- [資訊圖表結構化重點](./infographics/INFOGRAPHIC_CONTENT.md)
+| 版本 | 定位 |
+|---|---|
+| v1（2026-11-03） | 原始課程提案與文字抽取；不可反推當時已有最終功能 |
+| v2（2026-11-24） | 研究探索中曾把道路級低污染路線與個人累積估算升級為必做 |
+| **v3（正式）** | P0 以官方測站、1／3／6h PM2.5、Agent、活動時間比較與 Web 為主；SHAP／手動活動記錄 P1；**排除道路級導航與醫療性宣稱** |
 
-文字備份可供全文搜尋，但表格、流程圖與投影片排版可能與原始檔不同。文字備份不取代原件。
-
-## 02｜系統與研究範圍
-
-- **Domain AI Agent × Domain Knowledge × Data Analytics × Real-World Application**。
-- **三項環境部資料**：AQX_P_432（即時 AQI）、AQX_P_488（歷史 AQI）、AQX_P_13（逐時監測）。
-- **預測**：1／3／6 小時 PM₂.₅，Persistence、Seasonal Naive、Ridge、Random Forest、XGBoost。
-- **回測**：70／15／15 時序切分、Rolling-origin，MAE／RMSE／Skill Score。
-- **Agent**：受控工具呼叫、官方 AQI 規則、來源追溯、至少 30 項情境驗收與安全降級。
-- **限制**：PM₂.₅ 預測不是未來官方 AQI，測站資料非街道級個人暴露；無個人醫療診斷。
-
-## 03｜完整性與後續工作
-
-- 原始檔 SHA-256 檢查碼見 [SHA256SUMS.txt](./SHA256SUMS.txt)。
-- 研究／開發計畫請見 [myplan/](../myplan/)。
-- 提案階段的 Expected Outcomes 不是完成的實驗結果。
-- 後續仍需建立並維護根目錄 `DESIGN.md`、可重現實驗與 Demo，才能符合完整 Final Handover 規範。
+參見 [v3 範圍修訂決策](../docs/decisions/2026-11-24-scope-decision.md)。
